@@ -105,7 +105,10 @@ body {
   color: #ffffff;
 }
 
-.nav-link[active="true"] {
+[active="true"] {
   color: black;
   font-weight: 600;
+  cursor: auto
 }
+
+
