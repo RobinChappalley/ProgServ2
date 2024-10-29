@@ -28,7 +28,7 @@ function createsForm()
       <div class="form-group">
         <input
           type="submit"
-          name="submit"
+          name="submitconnect"
           value="Se connecter"
           class="form-button"
         />

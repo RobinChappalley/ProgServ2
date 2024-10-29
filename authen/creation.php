@@ -4,9 +4,10 @@ require_once "autoload.php";
 
 use dbconcerns\DbManagerCRUD;
 use dbconcerns\Personne;
+
 function createsForm()
 {
-    return '<!DOCTYPE html>
+  return '<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +15,7 @@ function createsForm()
     <title>Créer un compte</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>'.addNavBar().'
+  <body>' . addNavBar() . '
     <form action="" method="post" class="form-container">
       <div class="form-group">
         <label for="firstname">Prénom :</label>
@@ -49,7 +50,7 @@ function createsForm()
       <div class="form-group">
         <input
           type="submit"
-          name="submit"
+          name="submitcreate"
           value="Créer un compte"
           class="form-button"
         />
@@ -62,7 +63,7 @@ function createsForm()
 
 function addNavBar()
 {
-    return '<nav class="navbar">
+  return '<nav class="navbar">
     <ul class="nav-list">
       <li><a href="page1.php" class="nav-link">Page 1</a></li>
       <li><a href="page2.php" class="nav-link">Page 2</a></li>
@@ -72,14 +73,19 @@ function addNavBar()
   </nav>';
 }
 
-echo createsForm();
 
-
-$db = new DbManagerCRUD();
-
-$db->creeTablePersonnes();
-
-// $personne = new Personne(difghqowerjif);
-
-
-
+if (filter_has_var(INPUT_POST, "submitcreate")) {
+  $db = new DbManagerCRUD();
+  $db->creeTablePersonnes();
+  $personne = new Personne(
+    filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_STRING),
+    filter_input(INPUT_POST, "lastname", FILTER_DEFAULT),
+    filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL),
+    filter_input(INPUT_POST, "phonenumber", FILTER_SANITIZE_NUMBER_INT),
+    filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING),
+    filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING)
+  );
+  echo $db->ajoutePersonne($personne);
+} else {
+  echo createsForm();
+}
