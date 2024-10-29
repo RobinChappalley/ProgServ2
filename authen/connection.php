@@ -61,7 +61,7 @@ function addNavBar()
     return '<nav class="navbar">
     <ul class="nav-list">
       <li><a href="page1.php" class="nav-link">Page 1</a></li>
-      <li><a href="#page2" class="nav-link">Page 2</a></li>
+      <li><a href="page2.php" class="nav-link">Page 2</a></li>
       <li><a class="nav-link" active="true">Se connecter</a></li>
       <li><a href="#signup" class="nav-link">Créer un compte</a></li>
     </ul>
