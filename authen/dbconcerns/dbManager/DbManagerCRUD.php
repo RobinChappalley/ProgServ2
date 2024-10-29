@@ -1,6 +1,6 @@
 <?php
 
-namespace dbconcerns\config\dbmanager;
+namespace dbconcerns\config\dbManager;
 
 use PDOException;
 
@@ -10,16 +10,17 @@ class DbManagerCRUD implements I_ApiCRUD
     private $db;
 
     public function __construct()
-    {echo "couc";
-        $config = parse_ini_file('config'.DIRECTORY_SEPARATOR.'db.ini', true);
+    {
+        echo "couccou";
+        $config = parse_ini_file('config' . DIRECTORY_SEPARATOR . 'db.ini', true);
         if (!$config) {
             die("Le fichier de configuration n'a pas pu être chargé.");
-        }        
+        }
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
         echo $password;
-        $this->db = new \PDO( $dsn, $username, $password);
+        $this->db = new \PDO($dsn, $username, $password);
         if (!$this->db) {
             die("Problème de connexion à la base de données");
         }
@@ -48,7 +49,8 @@ COMMANDE_SQL;
     }
 
     public function ajoutePersonne(Personne $personne): int
-    { echo "le début marche !";
+    {
+        echo "le début marche !";
         $datas = [
             'nom' => $personne->rendNom(),
             'prenom' => $personne->rendPrenom(),
