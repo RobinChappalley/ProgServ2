@@ -1,6 +1,6 @@
 <?php
 
-namespace dbconcerns;
+namespace dbconcerns\config;
 
 use PDOException;
 
@@ -11,8 +11,7 @@ class DbManagerCRUD implements I_ApiCRUD
 
     public function __construct()
     {
-        echo"coucou";
-        $config = parse_ini_file('config' . DIRECTORY_SEPARATOR . 'db.ini', true);
+        $config = parse_ini_file('config'.DIRECTORY_SEPARATOR.'db.ini', true);
         if (!$config) {
             die("Le fichier de configuration n'a pas pu être chargé.");
         }        
