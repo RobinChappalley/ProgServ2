@@ -1,6 +1,6 @@
 <?php
 
-use ch\comem\DbManagerCRUD;
+use autoload.php
 
 function createsForm()
 {
@@ -75,4 +75,9 @@ echo createsForm();
 
 $db = new DbManagerCRUD();
 
+$db->creeTablePersonnes();
+
+$personne = new Personne(difghqowerjif);
+
+$person
 

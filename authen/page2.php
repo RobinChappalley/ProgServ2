@@ -1,7 +1,7 @@
 <?
 function displayContent()
 {
-    return '<!DOCTYPE html>
+  return '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@ function displayContent()
     <link rel="stylesheet" href="style.css" />
 
 </head>
-<body>'.addNavBar().'
+<body>' . addNavBar() . '
     <div>Ceci est une div sur la page 2</div>
 </body>
 </html>
@@ -18,7 +18,7 @@ function displayContent()
 }
 function addNavBar()
 {
-    return '<nav class="navbar">
+  return '<nav class="navbar">
     <ul class="nav-list">
       <li><a href="page1.php" class="nav-link">Page 1</a></li>
       <li><a class="nav-link" active="true">Page 2</a></li>
@@ -29,5 +29,3 @@ function addNavBar()
 }
 
 echo displayContent();
-
-
