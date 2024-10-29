@@ -1,4 +1,5 @@
 <?  
+session_start();
 function displayContent()
 {
     return '<!DOCTYPE html>
