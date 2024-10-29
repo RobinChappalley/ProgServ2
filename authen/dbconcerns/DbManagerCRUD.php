@@ -1,25 +1,28 @@
 <?php
 
-namespace ch\comem;
+namespace dbconcerns;
 
 use PDOException;
 
-class DbManagerCRUD implements I_ApiCRUD {
+class DbManagerCRUD implements I_ApiCRUD
+{
 
     private $db;
 
-    public function __construct() {
+    public function __construct()
+    {
         $config = parse_ini_file('config' . DIRECTORY_SEPARATOR . 'db.ini', true);
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
-        $this->db = new \PDO( $dsn, $username, $password);
+        $this->db = new \PDO($dsn, $username, $password);
         if (!$this->db) {
             die("Problème de connexion à la base de données");
         }
     }
 
-    public function creeTablePersonnes(): bool {
+    public function creeTablePersonnes(): bool
+    {
         $sql = <<<COMMANDE_SQL
             CREATE TABLE IF NOT EXISTS personnes (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +43,8 @@ COMMANDE_SQL;
         return $ok;
     }
 
-    public function ajoutePersonne(Personne $personne): int {
+    public function ajoutePersonne(Personne $personne): int
+    {
         $datas = [
             'nom' => $personne->rendNom(),
             'prenom' => $personne->rendPrenom(),
@@ -48,12 +52,13 @@ COMMANDE_SQL;
             'noTel' => $personne->rendNoTel(),
         ];
         $sql = "INSERT INTO personnes (nom, prenom, email, noTel) VALUES "
-                . "(:nom, :prenom, :email, :noTel)";
+            . "(:nom, :prenom, :email, :noTel)";
         $this->db->prepare($sql)->execute($datas);
         return $this->db->lastInsertId();
     }
 
-    public function modifiePersonne(int $id, Personne $personne): bool {
+    public function modifiePersonne(int $id, Personne $personne): bool
+    {
         $datas = [
             'id' => $id,
             'nom' => $personne->rendNom(),
@@ -66,7 +71,8 @@ COMMANDE_SQL;
         return true;
     }
 
-    public function rendPersonnes(string $nom): array {
+    public function rendPersonnes(string $nom): array
+    {
         $sql = "SELECT * From personnes WHERE nom = :nom;";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam('nom', $nom, \PDO::PARAM_STR);
@@ -76,11 +82,12 @@ COMMANDE_SQL;
         if ($donnees) {
             foreach ($donnees as $donneesPersonne) {
                 $p = new Personne(
-                        $donneesPersonne["prenom"],
-                        $donneesPersonne["nom"],
-                        $donneesPersonne["email"],
-                        $donneesPersonne["noTel"],
-                        $donneesPersonne["id"],
+                    $donneesPersonne["prenom"],
+                    $donneesPersonne["nom"],
+                    $donneesPersonne["email"],
+                    $donneesPersonne["noTel"],
+                    $donneesPersonne["id"],
+                    $donneesPersonne["pwd"]
                 );
                 $tabPersonnes[] = $p;
             }
@@ -88,12 +95,12 @@ COMMANDE_SQL;
         return $tabPersonnes;
     }
 
-    public function supprimePersonne(int $id): bool {
+    public function supprimePersonne(int $id): bool
+    {
         $sql = "DELETE FROM personnes WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam('id', $id, \PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->rowCount() > 0;
     }
-
 }

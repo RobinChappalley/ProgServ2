@@ -1,7 +1,9 @@
 <?php
 
-use autoload.php
+require_once "autoload.php";
 
+use dbconcerns\DbManagerCRUD;
+use dbconcerns\Personne;
 function createsForm()
 {
     return '<!DOCTYPE html>
@@ -77,7 +79,7 @@ $db = new DbManagerCRUD();
 
 $db->creeTablePersonnes();
 
-$personne = new Personne(difghqowerjif);
+// $personne = new Personne(difghqowerjif);
 
-$person
+
 

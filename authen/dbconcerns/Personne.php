@@ -1,6 +1,6 @@
 <?php
 
-namespace ch\comem;
+namespace dbconcerns;
 
 use \Exception;
 
