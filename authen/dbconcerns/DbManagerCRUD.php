@@ -2,6 +2,8 @@
 
 namespace ch\comem;
 
+use PDOException;
+
 class DbManagerCRUD implements I_ApiCRUD {
 
     private $db;
@@ -11,7 +13,7 @@ class DbManagerCRUD implements I_ApiCRUD {
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
-        $this->db = new \PDO($dsn, $username, $password);
+        $this->db = new \PDO( $dsn, $username, $password);
         if (!$this->db) {
             die("Problème de connexion à la base de données");
         }
