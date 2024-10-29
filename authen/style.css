@@ -12,6 +12,8 @@ body {
   align-items: center;
   min-height: 100vh;
   background-color: #f0f0f5;
+  font-family: Georgia, "Times New Roman", Times, serif, sans-serif;
+  padding-top: 60px;    
 }
 
 .form-container {
@@ -71,11 +73,6 @@ body {
   padding: 0;
 }
 
-body {
-  font-family: Georgia, "Times New Roman", Times, serif, sans-serif;
-  padding-top: 60px;
-}
-
 .navbar {
   background-color: #c0aaaa;
   padding: 15px;
@@ -108,7 +105,5 @@ body {
 [active="true"] {
   color: black;
   font-weight: 600;
-  cursor: default
+  cursor: default;
 }
-
-
