@@ -1,5 +1,7 @@
 <?php
 
+use ch\comem\DbManagerCRUD;
+
 function createsForm()
 {
     return '<!DOCTYPE html>
@@ -69,3 +71,8 @@ function addNavBar()
 }
 
 echo createsForm();
+
+
+$db = new DbManagerCRUD();
+
+
