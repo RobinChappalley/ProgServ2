@@ -1,6 +1,6 @@
 <?php
 
-namespace dbconcerns\config\dbmanager;
+namespace dbconcerns;
 
 interface I_ApiCRUD {
     public function creeTablePersonnes(): bool;

@@ -1,6 +1,6 @@
 <?php
 
-namespace dbconcerns\config\dbManager;
+namespace dbconcerns;
 
 use PDOException;
 
