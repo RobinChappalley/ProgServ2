@@ -108,7 +108,7 @@ body {
 [active="true"] {
   color: black;
   font-weight: 600;
-  cursor: auto
+  cursor: default
 }
 
 
