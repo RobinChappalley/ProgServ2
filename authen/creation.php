@@ -2,8 +2,8 @@
 session_start();
 require_once "autoload.php";
 
-use dbconcerns\config\DbManagerCRUD;
-use dbconcerns\config\Personne;
+use dbconcerns\config\dbManager\DbManagerCRUD;
+use dbconcerns\config\dbManager\Personne;
 
 function createsForm()
 {

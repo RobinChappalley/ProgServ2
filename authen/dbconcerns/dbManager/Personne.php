@@ -1,6 +1,6 @@
 <?php
 
-namespace dbconcerns;
+namespace dbconcerns\config\dbManager;
 
 use \Exception;
 
