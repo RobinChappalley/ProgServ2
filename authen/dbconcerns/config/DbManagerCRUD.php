@@ -11,11 +11,16 @@ class DbManagerCRUD implements I_ApiCRUD
 
     public function __construct()
     {
+        echo"coucou";
         $config = parse_ini_file('config' . DIRECTORY_SEPARATOR . 'db.ini', true);
+        if (!$config) {
+            die("Le fichier de configuration n'a pas pu être chargé.");
+        }        
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
-        $this->db = new \PDO($dsn, $username, $password);
+        echo $password;
+        $this->db = new \PDO( $dsn, $username, $password);
         if (!$this->db) {
             die("Problème de connexion à la base de données");
         }
@@ -44,7 +49,7 @@ COMMANDE_SQL;
     }
 
     public function ajoutePersonne(Personne $personne): int
-    {
+    { echo "le début marche !";
         $datas = [
             'nom' => $personne->rendNom(),
             'prenom' => $personne->rendPrenom(),
@@ -54,6 +59,7 @@ COMMANDE_SQL;
         $sql = "INSERT INTO personnes (nom, prenom, email, noTel) VALUES "
             . "(:nom, :prenom, :email, :noTel)";
         $this->db->prepare($sql)->execute($datas);
+        echo "la requête a été éxécutée !";
         return $this->db->lastInsertId();
     }
 

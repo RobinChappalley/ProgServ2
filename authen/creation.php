@@ -75,8 +75,11 @@ function addNavBar()
 
 
 if (filter_has_var(INPUT_POST, "submitcreate")) {
+  echo "entrée dans le if"; 
   $db = new DbManagerCRUD();
+  echo "DB créee!";
   $db->creeTablePersonnes();
+  echo "table créée";
   $personne = new Personne(
     filter_input(INPUT_POST, "firstname", FILTER_SANITIZE_STRING),
     filter_input(INPUT_POST, "lastname", FILTER_DEFAULT),
@@ -85,7 +88,7 @@ if (filter_has_var(INPUT_POST, "submitcreate")) {
     filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING),
     filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING)
   );
-  echo $db->ajoutePersonne($personne);
+  $db->ajoutePersonne($personne);
 } else {
   echo createsForm();
 }
