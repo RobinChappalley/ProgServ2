@@ -13,7 +13,7 @@ class DbManagerCRUD implements I_ApiCRUD {
         $password = $config['password'];
         $this->db = new \PDO($dsn, $username, $password);
         if (!$this->db) {
-            die("Problème de connection à la base de données");
+            die("Problème de connexion à la base de données");
         }
     }
 

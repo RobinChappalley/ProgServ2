@@ -28,4 +28,6 @@ function addNavBar()
   </nav>';
 }
 
+
+//header()
 echo displayContent();
