@@ -12,25 +12,8 @@ function createsForm()
   <body>'.addNavBar().'
     <form action="" method="post" class="form-container">
       <div class="form-group">
-        <label for="firstname">Prénom :</label>
-        <input type="text" name="firstname" id="firstname" class="form-input" />
-      </div>
-      <div class="form-group">
-        <label for="lastname">Nom :</label>
-        <input type="text" name="lastname" id="lastname" class="form-input" />
-      </div>
-      <div class="form-group">
         <label for="email">Email :</label>
         <input type="email" name="email" id="email" class="form-input" />
-      </div>
-      <div class="form-group">
-        <label for="phonenumber">Numéro de téléphone :</label>
-        <input
-          type="number"
-          name="phonenumber"
-          id="phonenumber"
-          class="form-input"
-        />
       </div>
       <div class="form-group">
         <label for="password">Mot de passe :</label>
@@ -45,7 +28,7 @@ function createsForm()
         <input
           type="submit"
           name="submit"
-          value="Créer un compte"
+          value="Se connecter"
           class="form-button"
         />
       </div>
@@ -54,3 +37,17 @@ function createsForm()
 </html>
 ';
 }
+
+function addNavBar()
+{
+    return '<nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="page1.php" class="nav-link">Page 1</a></li>
+      <li><a href="page2.php" class="nav-link">Page 2</a></li>
+      <li><a href="creation.php" class="nav-link">Créer un compte</a></li>
+      <li><a class="nav-link" active="true">Se connecter</a></li>
+    </ul>
+  </nav>';
+}
+
+echo createsForm();

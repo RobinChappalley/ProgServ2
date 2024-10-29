@@ -23,7 +23,7 @@ function addNavBar()
       <li><a href="page1.php" class="nav-link">Page 1</a></li>
       <li><a class="nav-link" active="true">Page 2</a></li>
       <li><a href="creation.php" class="nav-link" >Créer un compte</a></li>
-      <li><a href="#signup" class="nav-link">Se connecter</a></li>
+      <li><a href="connection.php" class="nav-link">Se connecter</a></li>
     </ul>
   </nav>';
 }
