@@ -75,10 +75,7 @@ function addNavBar()
 
 
 if (filter_has_var(INPUT_POST, "submitcreate")) {
-  echo "entrée dans le if"; 
-  if (!class_exists('dbconcerns\config\dbmanager\DbManagerCRUD')) {
-    die("La classe DbManagerCRUD n'a pas pu être trouvée.");
-}
+  echo "entrée dans le if";
   $db = new DbManagerCRUD();
   echo "DB créee!";
   $db->creeTablePersonnes();

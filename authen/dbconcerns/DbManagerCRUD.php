@@ -11,19 +11,22 @@ class DbManagerCRUD implements I_ApiCRUD
 
     public function __construct()
     {
-        echo "couccou";
-        $config = parse_ini_file('config' . DIRECTORY_SEPARATOR . 'db.ini', true);
+        echo "coucou";
+        var_dump(parse_ini_file('config/db.ini', true));
+        $config = parse_ini_file('config/db.ini', true);
+        
         if (!$config) {
             die("Le fichier de configuration n'a pas pu être chargé.");
         }
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
-        echo $password;
+       // echo $password;
         $this->db = new \PDO($dsn, $username, $password);
         if (!$this->db) {
             die("Problème de connexion à la base de données");
-        }
+        };
+        echo "tout a réussi !";
     }
 
     public function creeTablePersonnes(): bool
