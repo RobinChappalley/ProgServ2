@@ -14,16 +14,10 @@
         <div class="confirmation">
             <h1>Ton compte a bien été supprimé </h1>
             <p>On se réjouit de te revoir ! </p>
-            <a href="../verification/homepage.php">Retour à la page d'accueil</a>
+            <a href="../homepage.php">Retour à la page d'accueil</a>
         </div>
-
     </main>
-    <footer>
-        <div>
-            <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-        </div>
-    </footer>
-
+    <?php include __DIR__ . '../../components/footer.php'; ?>
 </body>
 
 </html>
