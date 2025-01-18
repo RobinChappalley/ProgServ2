@@ -9,7 +9,7 @@ class Database
 
     public function __construct()
     {
-        $config = parse_ini_file(__DIR__ . '../config/db.ini');
+        $config = parse_ini_file(__DIR__ . '/../config/db.ini');
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
