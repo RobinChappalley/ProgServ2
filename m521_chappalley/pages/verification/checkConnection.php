@@ -1,7 +1,4 @@
 <?php
-
-//use Exception;
-
 require_once('../../db/Database.php');
 session_start();
 

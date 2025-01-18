@@ -11,9 +11,8 @@
 
 <header>
     <ul class="menu">
-        <li><a href="homepage.php">Babel</a></li>
-        <li><a href="../about.php">A propos</a></li>
-        <li><a href="library.php">Bibliothèque</a></li>
+        <li><a href="../pages/homepage.php">Babel</a></li>
+        <li><a href="../pages/about.php">A propos</a></li>
 
         <?php if (isset($_SESSION['utilisateur'])): ?>
             <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
@@ -27,8 +26,8 @@
             <?php endif; ?>
             <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
         <?php else: ?>
-            <li id="connexion"><a href="./connexion.html">Se connecter</a></li>
-            <li id="nouveauCompte"><a href="./inscription.html">Créer un compte</a></li>
+            <li id="connexion"><a href="./connexion.php">Se connecter</a></li>
+            <li id="nouveauCompte"><a href="./inscription.php">Créer un compte</a></li>
         <?php endif; ?>
     </ul>
 </header>
