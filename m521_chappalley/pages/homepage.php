@@ -57,8 +57,7 @@ function displayBooks($books)
             <?php else: ?>
                 <h1>Bienvenue !</h1>
             <?php endif; ?>
-
-
+            <!-- INSERER LA LOGIQUE ICI  -->
             <?php if (isset($_SESSION['utilisateur'])): ?>
                 <div class="add-book-form">
                     <form action="../verification/checkNewBook.php" method="POST">
