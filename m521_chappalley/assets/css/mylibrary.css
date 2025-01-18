@@ -1,0 +1,95 @@
+.main {
+  width: 100vw;
+}
+
+@supports not (-ms-ime-align: auto) {
+
+  details summary { 
+    cursor: pointer;
+  }
+
+  details summary > * { 
+    display: inline;
+  }
+}
+summary {
+  background-color: var(--medium-green);
+  padding: 0.8rem;
+  border-top: solid 0.1rem var(--dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+summary::before {
+  content: "↓";
+  padding-left: 3rem;
+}
+
+details[open] summary::before {
+  content: "—";
+  color: var(--medium-green)
+}
+
+details[open] summary {
+  background-color: var(--dark-green);
+}
+
+details[open] summary h2 {
+  color: var(--medium-green);
+}
+
+details>summary {
+  list-style: none;
+}
+
+details>summary::marker,
+details>summary::-webkit-details-marker {
+  display: none;
+}
+
+h2 {
+  padding-left: 2rem;
+}
+
+.details-container {
+  position: static;
+  inset: 0;
+  width: 100vw;
+  height: auto;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  place-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-block: 3rem; 
+}
+
+.book-item {
+  background-color: #FAF0E6;
+  padding: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+.book-item h3,
+.book-item h4 {
+  padding-left: 0.5rem;
+}
+
+.book-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 1rem;
+  color: var(--medium-green);
+}
+
+.img {
+  object-fit: contain;
+  width: 200px;
+  height: 300px;
+}
