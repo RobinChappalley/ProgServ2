@@ -9,14 +9,7 @@
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="../verification/homepage.php">Babel</a></li>
-            <li><a href="../about.php">Notre histoire</a></li>
-            <li id="connexion"><a href="../connexion.html">Se connecter</a></li>
-            <li id="nouveauCompte"><a href="../inscription.html">Créer un compte</a></li>
-        </ul>
-    </header>
+    <?php include __DIR__ . '../../components/header.php'; ?>
     <main class="pages">
         <div class="confirmation">
             <h1>Ton compte a bien été supprimé </h1>
@@ -26,10 +19,10 @@
 
     </main>
     <footer>
-    <div>
-        <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-    </div>
-</footer>
+        <div>
+            <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
+        </div>
+    </footer>
 
 </body>
 
