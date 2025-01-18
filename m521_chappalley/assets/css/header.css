@@ -66,7 +66,6 @@ body {
 #nouveauCompte a {
   display: block;
   color: var(--warm-brown);
-  text-transform: uppercase;
 }
 
 #deconnexion a {

@@ -41,37 +41,15 @@ function displayBooks($books)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
-    <link rel="stylesheet" href="../../assets/css/index.css">
-    <link rel="stylesheet" href="../../assets/css/form-add-book.css">
-    <link rel="stylesheet" href="../../assets/css/library.css">
-    <link rel="stylesheet" href="../../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/form-add-book.css">
+    <link rel="stylesheet" href="../assets/css/library.css">
+    <link rel="stylesheet" href="../assets/css/normalize.css">
     <script src="../../assets/js/checkisbn.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="homepage.php">Babel</a></li>
-            <li><a href="../about.php">A propos</a></li>
-            <li><a href="library.php">Bibliothèque</a></li>
-
-            <?php if (isset($_SESSION['utilisateur'])): ?>
-                <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
-                    <!-- Lien admin -->
-                    <li><a href="dashboardAdmin.php">Tableau de bord</a></li>
-                    <li><a href="../adminPage.php">Compte admin</a></li>
-                <?php else: ?>
-                    <!-- Lien utilisateur -->
-                    <li><a href="libraryUser.php">Mes lectures</a></li>
-                    <li><a href="../dashboardUser.php">Mon compte</a></li>
-                <?php endif; ?>
-                <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
-            <?php else: ?>
-                <li id="connexion"><a href="../connexion.html">Se connecter</a></li>
-                <li id="nouveauCompte"><a href="../inscription.html">Créer un compte</a></li>
-            <?php endif; ?>
-        </ul>
-    </header>
+    <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
         <div class="content">
             <?php if (isset($_SESSION['utilisateur'])): ?>
@@ -80,10 +58,6 @@ function displayBooks($books)
                 <h1>Bienvenue !</h1>
             <?php endif; ?>
 
-            <div class="books-container">
-                <!-- Affichage des livres -->
-                <?php displayBooks($tenBooks); ?>
-            </div>
 
             <?php if (isset($_SESSION['utilisateur'])): ?>
                 <div class="add-book-form">
@@ -122,7 +96,7 @@ function displayBooks($books)
             <?php endif; ?>
         </div>
     </main>
-    <?php include __DIR__ . '/../components/footer.php'; ?>
+    <?php include __DIR__ . '/../components/footer.html'; ?>
 </body>
 
 </html>
