@@ -36,24 +36,12 @@ class Database
         $stmt->execute();
 
         if ($stmt->fetchColumn() === false) { // Si la table "book" n'existe pas
-            return $this->initialistion();
+            return $this->initialisation();
         }
 
         return true; // La base est déjà initialisée
     }
 
-    public function initialistion(): bool
-    {
-        $ok = true;
-        $ok = $ok && $this->createTableBookState();
-        $ok = $ok && $this->createTableBook();
-        $ok = $ok && $this->createTableusers();
-        $ok = $ok && $this->createTablelecture();
-        $ok = $ok && $this->createTableBookValidation();
-        $ok = $ok && $this->insertBooks();
-
-        return $ok;
-    }
     // Getter pour accéder à $db
     public function getDb()
     {
