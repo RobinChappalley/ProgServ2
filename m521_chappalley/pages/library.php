@@ -1,5 +1,5 @@
 <?php
-require_once('../../db/Database.php');
+require_once('../db/Database.php');
 session_start();
 
 $db = new Database();
@@ -24,26 +24,7 @@ $allBooks = $db->getAllBooks();
 </head>
 
 <body>
-  <header>
-    <ul>
-      <li><a href="homepage.php">Babel</a></li>
-      <li><a href="../about.php">A propos</a></li>
-      <li><a href="library.php">Bibliothèque</a></li>
-      <?php if (isset($_SESSION['utilisateur'])): ?>
-        <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
-          <li><a href="dashboardAdmin.php">Tableau de bord</a></li>
-          <li><a href="../adminPage.php">Compte admin</a></li>
-        <?php else: ?>
-          <li><a href="libraryUser.php">Mes lectures</a></li>
-          <li><a href="../dashboardUser.php">Mon compte</a></li>
-        <?php endif; ?>
-        <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
-      <?php else: ?>
-        <li id="connexion"><a href="../connexion.html">Se connecter</a></li>
-        <li id="nouveauCompte"><a href="../inscription.html">Créer un compte</a></li>
-      <?php endif; ?>
-    </ul>
-  </header>
+  <?php include __DIR__ . '/../components/header.php'; ?>
   <main>
     <div class="form-container">
       <form action="searchbar.php" method="POST">
@@ -71,9 +52,7 @@ $allBooks = $db->getAllBooks();
       <?php endif; ?>
     </div>
   </main>
-  <footer>
-    <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-  </footer>
+  <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
     <ul class="menu">
         <li><a href="../pages/homepage.php">Babel</a></li>
         <li><a href="../pages/about.php">A propos</a></li>
+        <li><a href="../pages/library.php">Bibliothèque</a></li>
 
         <?php if (isset($_SESSION['utilisateur'])): ?>
             <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
