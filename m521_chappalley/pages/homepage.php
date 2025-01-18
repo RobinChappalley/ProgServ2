@@ -95,7 +95,7 @@ function displayBooks($books)
             <?php endif; ?>
         </div>
     </main>
-    <?php include __DIR__ . '/../components/footer.html'; ?>
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>
 
 </html>

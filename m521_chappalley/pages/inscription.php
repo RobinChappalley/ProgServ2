@@ -86,6 +86,7 @@
       <p><a href="connexion.html">Je possède déjà un compte</a></p>
     </section>
   </main>
+  <?php include "../components/footer.php"; ?>
 </body>
 
 </html>
