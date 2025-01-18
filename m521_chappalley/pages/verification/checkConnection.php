@@ -1,13 +1,12 @@
 <?php
 require_once('../../db/Database.php');
 session_start();
-
 $donneeConnexion = [];
 
 if (filter_has_var(INPUT_POST, 'submit')) {
     $donneeConnexion['pseudo'] = filter_input(INPUT_POST, 'pseudo', FILTER_VALIDATE_REGEXP, ["options" => ["regexp" => "/^.{4,100}$/"]]);
     $donneeConnexion['password'] = filter_input(INPUT_POST, 'password', FILTER_VALIDATE_REGEXP, ["options" => ["regexp" => "/^.{8,100}$/"]]);
-}else {
+} else {
     $_SESSION['message'] = "Les informations entrées ne sont pas conformes à la demande";
     header('Location: ../messages/message.php', true, 303);
     exit();
@@ -22,7 +21,6 @@ foreach ($required as $champ) {
         exit();
     }
 }
-
 
 // Accéder à la base de données
 $db = new Database();
