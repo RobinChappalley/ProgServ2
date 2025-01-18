@@ -13,29 +13,7 @@ session_start();
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="../pages/verification/homepage.php">Babel</a></li>
-            <li><a href="about.php">A propos</a></li>
-            <li> <a href="../pages/verification/library.php">Bibliothèque</a></li>
-
-            <?php if (isset($_SESSION['utilisateur'])): ?>
-                <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
-                    <!-- Si l'utilisateur est admin, afficher le lien vers le tableau de bord admin -->
-                    <li> <a href="../pages/verification/dashboardAdmin.php">Tableau de bord</a></li>
-                    <li> <a href="adminPage.php">Compte admin</a></li>
-                <?php else: ?>
-                    <!-- Si l'utilisateur n'est pas admin, afficher son compte utilisateur -->
-                    <li> <a href="./verification/libraryUser.php">Mes lectures</a></li>
-                    <li> <a href="dashboardUser.php">Mon compte</a></li>
-                <?php endif; ?>
-                <li id="deconnexion"><a href="deconnexion.php">Se déconnecter</a></li>
-            <?php else: ?>
-                <li id="connexion"><a href="connexion.html">Se connecter</a></li>
-                <li id="nouveauCompte"><a href="inscription.html">Créer un compte</a></li>
-            <?php endif; ?>
-        </ul>
-    </header>
+    <?php include  './../components/header.php'; ?>
     <main>
         <section class="about-content">
             <h1>À propos de Babel</h1>
@@ -63,9 +41,7 @@ session_start();
             </article>
         </section>
     </main>
-    <footer>
-        <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-    </footer>
+    <?php include  './../components/footer.html'; ?>
 </body>
 
 </html>

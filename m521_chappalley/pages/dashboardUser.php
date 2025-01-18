@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once __DIR__ . '/../config/session.php';
 
 ?>
@@ -112,9 +111,7 @@ require_once __DIR__ . '/../config/session.php';
             <?php endif; ?>
         </div>
     </main>
-    <footer>
-        <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-    </footer>
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 
 </body>
 

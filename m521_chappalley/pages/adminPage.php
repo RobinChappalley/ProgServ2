@@ -20,29 +20,7 @@ require_once __DIR__ . '/../config/session.php';
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="../pages/verification/homepage.php">Babel</a></li>
-            <li><a href="about.php">A propos</a></li>
-            <li> <a href="../pages/verification/library.php">Bibliothèque</a></li>
-
-            <?php if (isset($_SESSION['utilisateur'])): ?>
-                <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
-                    <!-- Si l'utilisateur est admin, afficher le lien vers le tableau de bord admin -->
-                    <li> <a href="../pages/verification/dashboardAdmin.php">Tableau de bord</a></li>
-                    <li> <a href="adminPage.php">Compte admin</a></li>
-                <?php else: ?>
-                    <!-- Si l'utilisateur n'est pas admin, afficher son compte utilisateur -->
-                    <li> <a href="libraryUser.php">Mes lectures</a></li>
-                    <li> <a href="dashboardUser.php">Mon compte</a></li>
-                <?php endif; ?>
-                <li id="deconnexion"><a href="deconnexion.php">Se déconnecter</a></li>
-            <?php else: ?>
-                <li id="connexion"><a href="connexion.html">Se connecter</a></li>
-                <li id="nouveauCompte"><a href="inscription.html">Créer un compte</a></li>
-            <?php endif; ?>
-        </ul>
-    </header>
+    <?php include __DIR__ . '/../components/header.php'; ?>
     <main>
         <div>
             <?php if (isset($_SESSION['utilisateur'])): ?>

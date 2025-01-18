@@ -1,5 +1,5 @@
 <?php
-require_once('../../db/Database.php');
+require_once('./../db/Database.php');
 session_start();
 
 $db = new Database();
@@ -122,9 +122,7 @@ function displayBooks($books)
             <?php endif; ?>
         </div>
     </main>
-    <footer>
-    <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-  </footer>
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>
 
 </html>
