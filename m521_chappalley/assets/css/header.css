@@ -67,7 +67,3 @@ body {
   display: block;
   color: var(--warm-brown);
 }
-
-#deconnexion a {
-  display: none; /* Cacher le lien de déconnexion lorsqu'un utilisateur n'est pas connecté */
-}
