@@ -38,10 +38,10 @@ require_once __DIR__ . '/../../config/session.php';
         <div class="confirmation">
             <?php if (isset($_SESSION['message'])): ?>
                 <h1><?php echo $_SESSION['message']; ?></h1>
-                <a href="../verification/homepage.php">Retour à la page d'accueil</a>
+                <a href="../homepage.php">Retour à la page d'accueil</a>
             <?php else: ?>
                 <h1>Il y a un problème ! </h1>
-                <a href="../verification/homepage.php">Retour à la page d'accueil</a>
+                <a href="../homepage.php">Retour à la page d'accueil</a>
             <?php endif; ?>
         </div>
 
