@@ -25,8 +25,7 @@ session_start();
                 <li><a href="../adminPage.php">Compte admin</a></li>
             <?php else: ?>
                 <!-- Lien utilisateur -->
-                <li><a href="libraryUser.php">Mes lectures</a></li>
-                <li><a href="../pages/dashboardUser.php">Mon compte</a></li>
+                <li><a href="./dashboardUser.php">Mon compte</a></li>
             <?php endif; ?>
             <li id="deconnexion"><a href="../pages/deconnexion.php">Se déconnecter</a></li>
         <?php else: ?>
