@@ -29,8 +29,8 @@ require_once __DIR__ . '/../../config/session.php';
                 <?php endif; ?>
                 <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
             <?php else: ?>
-                <li id="connexion"><a href="../connexion.html">Se connecter</a></li>
-                <li id="nouveauCompte"><a href="../inscription.html">Créer un compte</a></li>
+                <li id="connexion"><a href="../connexion.php">Se connecter</a></li>
+                <li id="nouveauCompte"><a href="../inscription.php">Créer un compte</a></li>
             <?php endif; ?>
         </ul>
     </header>
