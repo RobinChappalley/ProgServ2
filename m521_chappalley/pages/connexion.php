@@ -66,7 +66,7 @@
       </p>
     </section>
   </main>
-  <?php include "../components/footer.html"; ?>
+  <?php include "../components/footer.php"; ?>
 </body>
 
 </html>
