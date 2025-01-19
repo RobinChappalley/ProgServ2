@@ -10,9 +10,15 @@ class Database
     public function __construct()
     {
         $config = parse_ini_file(__DIR__ . '/../config/db.ini');
+        if ($config === false) {
+            throw new Exception("Erreur lors de l'ouverture du fichier de configuration de la base de données.");
+        }
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
+      
+        error_log("DSN: $dsn");
+        error_log("Username: $username");
 
         try {
             $this->db = new \PDO($dsn, $username, $password);
