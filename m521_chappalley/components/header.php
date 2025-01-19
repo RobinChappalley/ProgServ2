@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +13,7 @@
 </head>
 
 <header>
-    <ul class="menu">
+    <ul class="menu" id="header">
         <li><a href="../pages/homepage.php">Babel</a></li>
         <li><a href="../pages/about.php">A propos</a></li>
         <li><a href="../pages/library.php">Bibliothèque</a></li>
@@ -23,9 +26,9 @@
             <?php else: ?>
                 <!-- Lien utilisateur -->
                 <li><a href="libraryUser.php">Mes lectures</a></li>
-                <li><a href="../dashboardUser.php">Mon compte</a></li>
+                <li><a href="../pages/dashboardUser.php">Mon compte</a></li>
             <?php endif; ?>
-            <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
+            <li id="deconnexion"><a href="../pages/deconnexion.php">Se déconnecter</a></li>
         <?php else: ?>
             <li id="connexion"><a href="./connexion.php">Se connecter</a></li>
             <li id="nouveauCompte"><a href="./inscription.php">Créer un compte</a></li>
