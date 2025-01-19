@@ -12,11 +12,11 @@ require_once __DIR__ . '/../../config/session.php';
 </head>
 
 <body>
-<header>
+    <header>
         <ul>
-            <li><a href="../verification/homepage.php">Babel</a></li>
+            <li><a href="../homepage.php">Babel</a></li>
             <li><a href="../about.php">A propos</a></li>
-            <li> <a href="../../pages/verification/library.php">Bibliothèque</a></li>
+            <li> <a href="../library.php">Bibliothèque</a></li>
             <?php if (isset($_SESSION['utilisateur'])): ?>
                 <?php if ($_SESSION['utilisateur']['pseudo'] === "admin"): ?>
                     <!-- Si l'utilisateur est admin, afficher le lien vers le tableau de bord admin -->
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../../config/session.php';
                     <li> <a href="../adminPage.php">Compte admin</a></li>
                 <?php else: ?>
                     <!-- Si l'utilisateur n'est pas admin, afficher son compte utilisateur -->
-                    <li> <a href="libraryUser.php">Mes lectures</a></li>
+                    <li> <a href="../libraryUser.php">Mes lectures</a></li>
                     <li> <a href="../dashboardUser.php">Mon compte</a></li>
                 <?php endif; ?>
                 <li id="deconnexion"><a href="../deconnexion.php">Se déconnecter</a></li>
@@ -46,9 +46,7 @@ require_once __DIR__ . '/../../config/session.php';
         </div>
 
     </main>
-    <footer>
-        <p>© 2024 Babel. Projet scolaire Bachelor Ingenierie des médias.</p>
-    </footer>
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>
 
 </html>
