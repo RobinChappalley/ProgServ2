@@ -1,38 +1,6 @@
 <?php
 require_once('./../db/Database.php');
 session_start();
-
-$db = new Database();
-if (!$db->initialisation()) {
-    echo "Erreur lors de l'accès à la base de données.";
-    exit();
-}
-
-// Récupération de 10 livres aléatoires
-$tenBooks = $db->getRandomBooks();
-
-// Fonction pour afficher les livres
-function displayBooks($books)
-{
-    if (empty($books)) {
-        echo '<p>Aucun livre disponible pour le moment.</p>';
-        return;
-    }
-    foreach ($books as $book) {
-        // Vérification du chemin de l'image de couverture
-        $coverPath = !empty($book['cover_image_path'])
-            ? '../../' . htmlspecialchars($book['cover_image_path'])
-            : '../../assets/images/covers/placeholder-mylibrary.jpg';
-
-        echo '<div class="book-item">
-                <a href="bookinfo.php?id=' . htmlspecialchars($book['id']) . '">
-                    <img src="' . $coverPath . '" alt="book-cover" />
-                    <h3 class="book-title">' . htmlspecialchars($book['Title']) . '</h3>
-                </a>
-                <h4 class="author">' . htmlspecialchars($book['Author']) . '</h4>
-              </div>';
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -59,39 +27,7 @@ function displayBooks($books)
             <?php endif; ?>
             <!-- INSERER LA LOGIQUE ICI  -->
             <?php if (isset($_SESSION['utilisateur'])): ?>
-                <div class="add-book-form">
-                    <form action="../verification/checkNewBook.php" method="POST">
-                        <h2>Ajouter un livre</h2>
 
-                        <div class="form-group">
-                            <label for="title">Titre</label>
-                            <input type="text" id="title" name="title" placeholder="Le Petit Prince" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="writer">Auteur</label>
-                            <input type="text" id="writer" name="writer" placeholder="Antoine de Saint-Exupéry" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="theme">Thème</label>
-                            <input type="text" id="theme" name="theme" placeholder="Romance" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="year">Année de publication</label>
-                            <input type="number" id="year" name="year" min="1000" max="9999" placeholder="1943" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="isbn">ISBN</label>
-                            <input type="text" id="isbn" name="isbn" placeholder="978-3-16-148410-0" required>
-                            <div id="isbn-error" style="color: red; font-size: 12px; display: none;"></div>
-                        </div>
-                        <input type="hidden" name="action" value="submit">
-                        <button type="submit" name="submit" class="button-soumission">Soumettre l'ouvrage</button>
-                    </form>
-                </div>
             <?php endif; ?>
         </div>
     </main>
