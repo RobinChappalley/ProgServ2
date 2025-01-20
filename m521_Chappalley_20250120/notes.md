@@ -1,0 +1,1 @@
+(!) Je fais la vérification de l'utilisateur avec le pseudo pour savoir si c'est l'admin ou non. A modifier si nécessaire --> rajouter si nécessaire aussi dans l'index (!) --> c'est dans le fichier message.php

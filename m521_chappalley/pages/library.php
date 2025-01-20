@@ -2,13 +2,15 @@
 require_once('../db/Database.php');
 session_start();
 
+echo "avant la création";
 $db = new Database();
+echo "après la création";
 if (!$db->initialisation()) {
   echo "Problème d'initialisation <br>";
 }
 
 // Get all books registered in database
-$allBooks = $db->getAllBooks();
+// $allBooks = $db->getAllBooks();
 ?>
 
 <!DOCTYPE html>
@@ -26,31 +28,8 @@ $allBooks = $db->getAllBooks();
 <body>
   <?php include __DIR__ . '/../components/header.php'; ?>
   <main>
-    <div class="form-container">
-      <form action="searchbar.php" method="POST">
-        <input type="text" id="search" name="search" placeholder="Recherche par titre ou auteur" />
-        <input type="submit" name="submit" value="Recherche" />
-      </form>
-    </div>
-    <div class="books-container">
-      <?php if (!empty($allBooks)): ?>
-        <?php foreach ($allBooks as $book): ?>
-          <div class="book-item">
-            <a href="bookinfo.php?id=<?= htmlspecialchars($book['id']) ?>">
-              <?php
-              // Vérifier si le champ cover_image_path est vide ou null
-              $coverPath = !empty($book['cover_image_path']) ? '../../' . $book['cover_image_path'] : '../../assets/images/covers/placeholder-mylibrary.jpg';
-              ?>
-              <img src="<?= htmlspecialchars($coverPath) ?>" alt="book-cover" />
-              <h3 class="book-title"><?= htmlspecialchars($book['Title']) ?></h3>
-            </a>
-            <h4 class="author"><?= htmlspecialchars($book['Author']) ?></h4>
-          </div>
-        <?php endforeach; ?>
-      <?php else: ?>
-        <p>Aucun livre disponible.</p>
-      <?php endif; ?>
-    </div>
+   
+   <!-- truc cool à faire -->
   </main>
   <?php include __DIR__ . '/../components/footer.php'; ?>
 </body>

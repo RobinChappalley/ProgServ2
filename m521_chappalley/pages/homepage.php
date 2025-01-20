@@ -22,6 +22,7 @@ session_start();
         <div class="content">
             <?php if (isset($_SESSION['utilisateur'])): ?>
                 <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['utilisateur']['pseudo']); ?> !</h1>
+                <a href="library.php">Se déconnecter</a>
             <?php else: ?>
                 <h1>Bienvenue !</h1>
             <?php endif; ?>

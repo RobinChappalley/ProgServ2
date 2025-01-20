@@ -16,12 +16,13 @@ class Database
         $dsn = $config['dsn'];
         $username = $config['username'];
         $password = $config['password'];
-      
+
         error_log("DSN: $dsn");
         error_log("Username: $username");
+        echo "Début du trycatch <br>";
 
         try {
-            $this->db = new \PDO($dsn, $username, $password);
+            $this->db = new PDO($dsn, $username, $password,);
             $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
             // Vérifie et initialise la base de données si nécessaire
@@ -31,6 +32,21 @@ class Database
         } catch (\PDOException $e) {
             error_log("Erreur de connexion à la base de données : " . $e->getMessage());
             die("Erreur lors de la connexion à la base de données.");
+        }
+    }
+
+    private function openDatabase($dsn, $username, $password)
+    {
+        try {
+            if ($this->db === null) {
+                $this->db = new \PDO($dsn, $username, $password, array(
+                    PDO::ATTR_PERSISTENT => true
+                ));
+            }
+            return $this->db;
+        } catch (\PDOException $e) {
+            error_log("Erreur lors de l'ouverture de la base de données : " . $e->getMessage());
+            throw new \Exception("Erreur lors de l'ouverture de la base de données.");
         }
     }
 
